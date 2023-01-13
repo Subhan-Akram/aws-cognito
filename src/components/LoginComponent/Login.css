@@ -1,0 +1,115 @@
+.login_wrapper{
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+    background-color: #171e30;
+}
+
+.login_container{
+/* padding: 3rem; */
+display: flex;
+width: 50%;
+flex-direction: column;
+justify-items: flex-start;
+align-items: center;
+margin: auto auto;
+}
+
+.mb_4{
+    margin-bottom: 4rem;
+}
+
+.login_title{
+    color: white;
+ 
+    font-size: 1.2rem;
+}
+
+.login_btn_div{
+width: 65%;
+min-width: 290px !important;
+
+}
+.login_btn{
+    width: 100%;
+    background-color: #16263f !important;
+    color: #3179bc !important;
+    outline: 1px #3179bc;
+}
+.login_input{
+width: 65% !important;
+min-width: 290px !important;
+border:none !important;
+background-color: #16263f !important;
+}
+
+.login_or{
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    text-align: center;
+    width: 65%;
+    min-width: 316px;
+    /* border:1px solid red */
+}
+.input_span{
+
+
+    background-color: #16263f !important;
+    color:white !important;
+    border: none !important; 
+    border-bottom: 1px solid blue !important;
+    
+}
+.input_phone{
+
+    background-color: #16263f !important;
+    color:white !important;
+    border:none !important;
+    border-bottom: 1px solid blue !important;
+border-radius: 0px !important;
+ 
+    
+
+}
+
+.input_phone ::placeholder{
+    color:white !important;
+    font-size: clamp(1rem,1vw,2rem) !important;
+}
+
+.input_phone:focus{
+outline: 0 !important;
+}
+input::placeholder {
+    font: 20px/3 sans-serif;
+}
+
+@media screen and (max-width:500px) {
+    .login_container{
+        width: 88%;
+    }
+}
+
+
+
+.bd_red{
+    border:1px solid red
+}
+
+
+
+.bd_blue{
+    border:1px solid blue
+}
+
+
+
+.bd_yellow{
+    border:1px solid yellow
+}

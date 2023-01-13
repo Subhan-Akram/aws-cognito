@@ -1,5 +1,8 @@
 
 import { Auth ,Amplify } from 'aws-amplify';
+
+
+
 Amplify.configure({
   Auth: {
     region: 'us-east-1', // your cognito region
@@ -31,13 +34,13 @@ export  const resendCode = async (phone) => {
             return error
         }
     };
- export const signUp=async(email,phone)=>{
+ export const signup=async(email,phone)=>{
         try {
           console.log(">>>aws cognitpo>",phone,email)
         
           const signUpResponse = await Auth.signUp({
               username:phone,
-              password:`${phone}-${email}-A`, // temporary password
+              password:`${phone}-@A`, // temporary password
               attributes: {
                   email:email,
                   phone_number:phone
@@ -53,15 +56,17 @@ export  const resendCode = async (phone) => {
       }
 
   }
- export const handleSignIn = async (phone,email) => {
+ export const handleSignIn = async (phone) => {
     try {
-        const signInResponse = await Auth.signIn(phone,`${phone}-${email}-A`); // temporary password
+   
+       
+        const signInResponse = await Auth.signIn(phone,`${phone}-@A`); // temporary password
         // setIsLoggedIn(true);
         console.log("token user : ",signInResponse)
         return signInResponse
         // setUser(signInResponse.getIdToken().payload);
     } catch (error) {
-        console.log(error);
+        console.log("signin error",error);
         return error
     }
 };

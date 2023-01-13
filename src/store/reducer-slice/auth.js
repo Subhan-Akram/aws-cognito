@@ -1,46 +1,20 @@
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { signUp } from '../../services/aws-cognito-auth/cognito-auth-functions'
+
+import { SignIn,SignUp } from './middlewares/auth'
 const initialState = {
   userLoggedIn: false,
-  signup_status:false,
+  signUp_status:false,
+  signInErr:"",
+  signIn:false,
   userCredentials:{
     email:"",
     phoneNumber:"",
     authToken:"",
     loading:false,
-    err:""
+  
   },user:{}
 }
-export const SignUp = createAsyncThunk(
-  'SignUp',
-  async (thunkAPI,{dispatch, getState, rejectWithValue, fulfillWithValue}) => {
-
-try{
-  
-const res=await signUp(thunkAPI.email,thunkAPI.phone);
-// console.log("res.status",res,res./message,!res.user.username==thunkAPI.phone)
-if (!res.user.username==thunkAPI.phone) {
-
-  console.log("rejected >>>>")
-  // return rejectWithValue(`${res} error is showing `)
-
-  throw Error(res)
-}
-return fulfillWithValue(res)
-}catch (err) {
-  alert(err)
-    throw rejectWithValue(err)
-  // handle error here
-
-}
-
-
-})
-
-
-
-
 
 
 
@@ -69,6 +43,27 @@ export const auth = createSlice({
     },
     [SignUp.rejected]: (state,{payload}) => {
       state.loading = false
+      state.userCredentials.err=payload
+    },
+
+
+
+
+
+
+
+    [SignIn.pending]: (state) => {
+      state.loading = true
+    },
+    [SignIn.fulfilled]: (state, { payload }) => {
+      console.log("user >",payload)
+      state.loading = false
+      state.signIn=true
+      state.user={payload}
+    },
+    [SignIn.rejected]: (state,{payload}) => {
+      state.loading = false
+      state.signIn=false
       state.userCredentials.err=payload
     },
   },

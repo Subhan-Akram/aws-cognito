@@ -1,0 +1,19 @@
+.mb_1{
+    margin-bottom: 1rem;
+}
+
+
+.mb_2{
+    margin-bottom: 2rem;
+}
+
+.mt_2{
+    margin-top: 2rem;
+}
+
+.login_continue_btn{
+    width: 100%;
+    background-color: #3179bc  !important;
+    color: white !important;
+    outline: 1px #3179bc;
+}

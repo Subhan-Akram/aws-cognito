@@ -5,8 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import aws_exports from './UserPool';
 import {Amplify} from 'aws-amplify';
-import { store } from './store/store'
+import { store,persistor } from './store/store'
 import { Provider } from 'react-redux'
+import { BrowserRouter } from "react-router-dom";
+// import { PersistGate } from 'redux-persist/integration/react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
@@ -14,7 +21,11 @@ Amplify.configure(aws_exports);
 root.render(
   <React.StrictMode>
   <Provider store={store}>
-    <App />
+
+<BrowserRouter>
+<App />
+</BrowserRouter>
+
   </Provider>,
   </React.StrictMode>
 );
